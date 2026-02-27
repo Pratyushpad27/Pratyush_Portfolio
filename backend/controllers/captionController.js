@@ -1,4 +1,4 @@
-const { generateCaption } = require('../services/gemini')
+const { generateCaption } = require('../services/openrouter')
 
 // Handles POST /api/caption
 const getCaptionHandler = async (req, res) => {

@@ -38,7 +38,7 @@ export default function ImageAPI() {
     }
   }
 
-  // Generate a caption for the image using Gemini via backend
+  // Generate a caption for the image using OpenRouter via backend
   const fetchCaption = async (query: string): Promise<string> => {
     // 1. Call the backend caption endpoint with the query
     // 2. Parse the response JSON
@@ -59,7 +59,7 @@ export default function ImageAPI() {
     // 2. Pick a random query from the list
     // 3. Fetch image from Pixabay via backend
     // 4. Display image immediately
-    // 5. Fetch caption from Gemini via backend
+    // 5. Fetch caption from OpenRouter via backend
     // 6. Display caption
     // 7. Handle any errors
 
@@ -98,7 +98,7 @@ export default function ImageAPI() {
         <h1 className="text-4xl font-bold text-white mb-4">Image + AI Caption Generator</h1>
         <p className="text-gray-400 leading-relaxed">
           Click the button to fetch a random image from Pixabay and generate an 
-          AI-powered caption using Google Gemini.
+          AI-powered caption using OpenRouter.
         </p>
       </section>
 
