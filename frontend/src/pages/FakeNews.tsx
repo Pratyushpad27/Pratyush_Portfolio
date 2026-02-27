@@ -1,5 +1,3 @@
-import React from 'react'
-
 const temperatures = [
   {
     temp: '0.2',
