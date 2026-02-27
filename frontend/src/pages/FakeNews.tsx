@@ -29,7 +29,7 @@ export default function FakeNews() {
           models like GPT work at their most fundamental level.
         </p>
         <div className="flex flex-wrap gap-3 mb-8">
-          {['Python', 'TensorFlow', 'Keras', 'RNN', 'LSTM', 'NLP', 'Transfer Learning'].map((tech) => (
+          {['Python', 'TensorFlow', 'Keras', 'RNN', 'LSTM', 'NLP', 'Text Generation'].map((tech) => (
             <span
               key={tech}
               className="text-xs px-3 py-1 rounded font-mono"
@@ -113,7 +113,7 @@ export default function FakeNews() {
             style={{ border: '1px solid #1e1e2e' }}
           >
             <div className="flex items-center justify-center p-4" style={{ backgroundColor: '#13131a' }}>
-              <img src="/fakenews/training_loss.png" alt="Training Loss" className="w-full max-w-lg h-64 object-contain" />
+              <img src="/fakenews/training_loss.png" alt="Training Loss" className="w-full max-w-lg h-64 object-contain" loading="lazy" />
             </div>
             <p className="text-gray-500 text-xs text-center py-2 font-mono" style={{ backgroundColor: '#13131a' }}>Training Loss</p>
           </div>
@@ -122,7 +122,7 @@ export default function FakeNews() {
             style={{ border: '1px solid #1e1e2e' }}
           >
             <div className="flex items-center justify-center p-4" style={{ backgroundColor: '#13131a' }}>
-              <img src="/fakenews/confidence_heatmap.png" alt="Confidence Heatmap" className="w-full h-64 object-contain" />
+              <img src="/fakenews/confidence_heatmap.png" alt="Confidence Heatmap" className="w-full h-64 object-contain" loading="lazy" />
             </div>
             <p className="text-gray-500 text-xs text-center py-2 font-mono" style={{ backgroundColor: '#13131a' }}>Confidence Heatmap</p>
           </div>
@@ -135,7 +135,7 @@ export default function FakeNews() {
           {[
             'LSTMs outperform SimpleRNNs on sequence tasks due to their gating mechanism',
             'Temperature sampling controls the creativity vs coherence tradeoff in generation',
-            'Transfer learning via pretrained checkpoints dramatically accelerates convergence',
+            'Sliding window tokenization turns raw text into thousands of labeled training sequences',
             'Character-level models reveal how modern LLMs like GPT learn language fundamentals',
           ].map((item) => (
             <li key={item} className="flex gap-3 text-gray-400 text-sm leading-relaxed">

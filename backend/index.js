@@ -8,7 +8,12 @@ const captionRoute = require('./routes/caption')
 const app = express()
 const PORT = process.env.PORT || 3001
 
-app.use(cors())
+// Allow requests from the live Netlify frontend and local dev
+const allowedOrigins = [
+  'https://pratyush-padhy-portfolio.netlify.app',
+  'http://localhost:5173',
+]
+app.use(cors({ origin: allowedOrigins }))
 app.use(express.json())
 
 // Routes

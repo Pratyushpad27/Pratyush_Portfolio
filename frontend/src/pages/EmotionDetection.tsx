@@ -114,6 +114,7 @@ export default function EmotionDetection() {
                   src={img.src}
                   alt={img.alt}
                   className="w-full h-48 object-contain"
+                  loading="lazy"
                 />
               </div>
               <p

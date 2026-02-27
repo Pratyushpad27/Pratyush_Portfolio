@@ -41,7 +41,7 @@ export default function Home() {
         </p>
         <div className="flex gap-4 flex-wrap">
           <Link
-            to="/projects/emotion-detection"
+            to="/projects"
             className="px-6 py-3 rounded-lg font-medium text-white transition-all duration-200 hover:opacity-90"
             style={{ backgroundColor: '#3b82f6' }}
           >
