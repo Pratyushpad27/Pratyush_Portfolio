@@ -11,7 +11,7 @@ const generateCaption = async (query) => {
         messages: [
           {
             role: 'user',
-            content: `Write exactly one caption (2-3 sentences) for a photo of "${query}". Be vivid and creative. Do not give options, just write one single caption directly.`
+            content: `Write exactly one short caption (2-3 sentences) for a "${query}" photo. Be specific to ${query}. Do not give options, just write one single caption directly.`
           }
         ]
       },

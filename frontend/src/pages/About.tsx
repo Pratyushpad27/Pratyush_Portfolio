@@ -1,37 +1,32 @@
+import React from 'react'
 
 export default function About() {
   return (
     <main className="max-w-4xl mx-auto px-6 pt-32 pb-20">
 
-      {/* Header */}
       <section className="mb-16 flex flex-col md:flex-row gap-12 items-start">
-        
-        {/* Photo */}
         <img
-          src="/pratyush.webp"
+          src="/Pratyush.png"
           alt="Pratyush Padhy"
           className="w-48 h-48 rounded-2xl object-cover flex-shrink-0"
           style={{ border: '2px solid #3b82f6' }}
         />
-
-        {/* Bio */}
         <div>
           <p className="font-mono text-sm mb-2" style={{ color: '#3b82f6' }}>About Me</p>
           <h1 className="text-4xl font-bold text-white mb-4">Pratyush Padhy</h1>
           <p className="text-gray-400 leading-relaxed mb-4">
-            First-year Computer Science student at UC Irvine with a 3.69 GPA and a passion 
-            for machine learning and AI. I build deep learning models, explore NLP, and 
+            First-year Computer Science student at UC Irvine with a 3.69 GPA and a passion
+            for machine learning and AI. I build deep learning models, explore NLP, and
             mentor 50+ students at Data@UCI on data-focused projects.
           </p>
           <p className="text-gray-400 leading-relaxed">
-            Previously placed top 10 at Berkeley ROAR training autonomous vehicles with ML, 
-            conducted RNA-seq research at Stanford iLab, and earned the Presidential Service 
+            Previously placed top 10 at Berkeley ROAR training autonomous vehicles with ML,
+            conducted RNA-seq research at Stanford iLab, and earned the Presidential Service
             Award for 250+ volunteer hours.
           </p>
         </div>
       </section>
 
-      {/* Education */}
       <section className="mb-16">
         <h2 className="text-2xl font-bold text-white mb-6">Education</h2>
         <div
@@ -62,7 +57,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Experience */}
       <section className="mb-16">
         <h2 className="text-2xl font-bold text-white mb-6">Experience</h2>
         <div className="flex flex-col gap-4">
@@ -104,10 +98,9 @@ export default function About() {
         </div>
       </section>
 
-      {/* Links */}
       <section className="flex gap-4 flex-wrap">
         
-          href="https://github.com/Pratyushpad27"
+          <a href="https://github.com/Pratyushpad27"
           target="_blank"
           rel="noopener noreferrer"
           className="px-6 py-3 rounded-lg font-medium text-white transition-all duration-200 hover:opacity-90"
@@ -116,7 +109,7 @@ export default function About() {
           GitHub
         </a>
         
-          href="https://www.linkedin.com/in/pratyush-padhy-b7017a269/"
+          <a href="https://www.linkedin.com/in/pratyush-padhy-b7017a269/"
           target="_blank"
           rel="noopener noreferrer"
           className="px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:text-white"

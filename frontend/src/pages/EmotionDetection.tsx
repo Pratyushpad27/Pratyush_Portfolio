@@ -1,3 +1,5 @@
+import React from 'react'
+
 const models = [
   {
     name: 'MLP (Pixels)',
@@ -32,13 +34,12 @@ export default function EmotionDetection() {
   return (
     <main className="max-w-4xl mx-auto px-6 pt-32 pb-20">
 
-      {/* Header */}
       <section className="mb-12">
         <p className="font-mono text-sm mb-2" style={{ color: '#3b82f6' }}>Project 01</p>
         <h1 className="text-4xl font-bold text-white mb-4">FER2013 Emotion Detection</h1>
         <p className="text-gray-400 text-lg leading-relaxed max-w-3xl mb-6">
-          A comparative study of 4 deep learning architectures for detecting human emotions 
-          from facial images. Built to explore how model complexity affects accuracy — from 
+          A comparative study of 4 deep learning architectures for detecting human emotions
+          from facial images. Built to explore how model complexity affects accuracy — from
           a simple MLP all the way to VGG16 transfer learning on 35,000+ images.
         </p>
         <div className="flex flex-wrap gap-3 mb-8">
@@ -53,7 +54,7 @@ export default function EmotionDetection() {
           ))}
         </div>
         
-          href="https://github.com/Pratyushpad27/fer2013-emotion-detection"
+          <a href="https://github.com/Pratyushpad27/fer2013-emotion-detection"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block px-6 py-3 rounded-lg font-medium text-white transition-all duration-200 hover:opacity-90"
@@ -63,18 +64,16 @@ export default function EmotionDetection() {
         </a>
       </section>
 
-      {/* Problem */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-white mb-4">Problem</h2>
         <p className="text-gray-400 leading-relaxed">
-          Human emotion recognition has applications in mental health tech, 
-          human-computer interaction, and security systems. The challenge is that 
-          facial expressions are subtle and vary significantly across individuals. 
+          Human emotion recognition has applications in mental health tech,
+          human-computer interaction, and security systems. The challenge is that
+          facial expressions are subtle and vary significantly across individuals.
           Human accuracy on FER2013 is only ~65%, making it a genuinely difficult problem.
         </p>
       </section>
 
-      {/* Models */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-white mb-6">Models Compared</h2>
         <div className="grid md:grid-cols-2 gap-4">
@@ -100,28 +99,36 @@ export default function EmotionDetection() {
         </div>
       </section>
 
-      {/* Results */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-white mb-6">Results</h2>
         <div className="grid md:grid-cols-2 gap-4">
           {images.map((img) => (
             <div
               key={img.alt}
-              className="rounded-xl overflow-hidden"
+              className="rounded-xl overflow-hidden flex flex-col"
               style={{ border: '1px solid #1e1e2e' }}
             >
-              <img
-                src={img.src}
-                alt={img.alt}
-                className="w-full object-cover"
-              />
-              <p className="text-gray-500 text-xs text-center py-2 font-mono">{img.alt}</p>
+              <div
+                className="flex items-center justify-center p-2"
+                style={{ backgroundColor: '#13131a' }}
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-48 object-contain"
+                />
+              </div>
+              <p
+                className="text-gray-500 text-xs text-center py-2 font-mono"
+                style={{ backgroundColor: '#13131a' }}
+              >
+                {img.alt}
+              </p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* What I Learned */}
       <section>
         <h2 className="text-2xl font-bold text-white mb-4">What I Learned</h2>
         <ul className="flex flex-col gap-3">

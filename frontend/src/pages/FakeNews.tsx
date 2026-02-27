@@ -1,3 +1,5 @@
+import React from 'react'
+
 const temperatures = [
   {
     temp: '0.2',
@@ -20,13 +22,12 @@ export default function FakeNews() {
   return (
     <main className="max-w-4xl mx-auto px-6 pt-32 pb-20">
 
-      {/* Header */}
       <section className="mb-12">
         <p className="font-mono text-sm mb-2" style={{ color: '#3b82f6' }}>Project 02</p>
         <h1 className="text-4xl font-bold text-white mb-4">Character-Level Language Model</h1>
         <p className="text-gray-400 text-lg leading-relaxed max-w-3xl mb-6">
-          An RNN and LSTM trained on 200,000 characters of fake news articles to generate 
-          new text from scratch — one character at a time. Built to understand how language 
+          An RNN and LSTM trained on 200,000 characters of fake news articles to generate
+          new text from scratch, one character at a time. Built to understand how language
           models like GPT work at their most fundamental level.
         </p>
         <div className="flex flex-wrap gap-3 mb-8">
@@ -41,17 +42,16 @@ export default function FakeNews() {
           ))}
         </div>
         
-          href="https://github.com/Pratyushpad27/char-level-language-model"
+          <a href="https://github.com/Pratyushpad27/char-level-language-model"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block px-6 py-3 rounded-lg font-medium text-white transition-all duration-200 hover:opacity-90"
           style={{ backgroundColor: '#3b82f6' }}
         >
-          View on GitHub ↗
+          View on GitHub
         </a>
       </section>
 
-      {/* How It Works */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-white mb-6">How It Works</h2>
         <div className="flex flex-col gap-4">
@@ -66,10 +66,7 @@ export default function FakeNews() {
               className="flex gap-4 rounded-xl p-5"
               style={{ backgroundColor: '#13131a', border: '1px solid #1e1e2e' }}
             >
-              <span
-                className="font-mono text-sm font-bold flex-shrink-0 mt-0.5"
-                style={{ color: '#3b82f6' }}
-              >
+              <span className="font-mono text-sm font-bold flex-shrink-0 mt-0.5" style={{ color: '#3b82f6' }}>
                 {item.step}
               </span>
               <div>
@@ -81,7 +78,6 @@ export default function FakeNews() {
         </div>
       </section>
 
-      {/* Sample Outputs */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-white mb-2">Sample Outputs</h2>
         <p className="text-gray-400 mb-6 text-sm">
@@ -111,27 +107,30 @@ export default function FakeNews() {
         </div>
       </section>
 
-      {/* Results Images */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-white mb-6">Results</h2>
-        <div className="grid md:grid-cols-2 gap-4">
-          {[
-            { src: '/fakenews/training_loss.png', alt: 'Training Loss' },
-            { src: '/fakenews/confidence_heatmap.png', alt: 'Confidence Heatmap' },
-          ].map((img) => (
-            <div
-              key={img.alt}
-              className="rounded-xl overflow-hidden"
-              style={{ border: '1px solid #1e1e2e' }}
-            >
-              <img src={img.src} alt={img.alt} className="w-full object-cover" />
-              <p className="text-gray-500 text-xs text-center py-2 font-mono">{img.alt}</p>
+        <div className="flex flex-col gap-4">
+          <div
+            className="rounded-xl overflow-hidden"
+            style={{ border: '1px solid #1e1e2e' }}
+          >
+            <div className="flex items-center justify-center p-4" style={{ backgroundColor: '#13131a' }}>
+              <img src="/fakenews/training_loss.png" alt="Training Loss" className="w-full max-w-lg h-64 object-contain" />
             </div>
-          ))}
+            <p className="text-gray-500 text-xs text-center py-2 font-mono" style={{ backgroundColor: '#13131a' }}>Training Loss</p>
+          </div>
+          <div
+            className="rounded-xl overflow-hidden"
+            style={{ border: '1px solid #1e1e2e' }}
+          >
+            <div className="flex items-center justify-center p-4" style={{ backgroundColor: '#13131a' }}>
+              <img src="/fakenews/confidence_heatmap.png" alt="Confidence Heatmap" className="w-full h-64 object-contain" />
+            </div>
+            <p className="text-gray-500 text-xs text-center py-2 font-mono" style={{ backgroundColor: '#13131a' }}>Confidence Heatmap</p>
+          </div>
         </div>
       </section>
 
-      {/* What I Learned */}
       <section>
         <h2 className="text-2xl font-bold text-white mb-4">What I Learned</h2>
         <ul className="flex flex-col gap-3">

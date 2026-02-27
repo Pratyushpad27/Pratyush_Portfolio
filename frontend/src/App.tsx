@@ -5,6 +5,7 @@ import About from './pages/About'
 import EmotionDetection from './pages/EmotionDetection'
 import FakeNews from './pages/FakeNews'
 import ImageAPI from './pages/ImageAPI'
+import Projects from './pages/Projects'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<Projects />} />
           <Route path="/projects/emotion-detection" element={<EmotionDetection />} />
           <Route path="/projects/fake-news" element={<FakeNews />} />
           <Route path="/api-demo" element={<ImageAPI />} />

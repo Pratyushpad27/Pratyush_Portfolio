@@ -23,7 +23,7 @@ const getImage = async (query) => {
     const image = hits[randomIndex]
 
     return {
-      url: image.webformatURL,
+      url: image.largeImageURL,
       photographer: image.user
     }
   } catch (error) {

@@ -1,14 +1,11 @@
-
 import { Link } from 'react-router-dom'
 
-// Skills list
 const skills = [
   'Python', 'TypeScript', 'React', 'TensorFlow', 'Keras',
   'CNNs', 'LSTMs', 'scikit-learn', 'Node.js', 'Express',
   'Git', 'R', 'Java', 'C++', 'Tailwind CSS'
 ]
 
-// Project cards data
 const projects = [
   {
     title: 'FER2013 Emotion Detection',
@@ -30,11 +27,8 @@ export default function Home() {
   return (
     <main className="max-w-6xl mx-auto px-6 pt-32 pb-20">
 
-      {/* Hero Section */}
       <section className="mb-24">
-        <p className="font-mono text-sm mb-4" style={{ color: '#3b82f6' }}>
-          Hi, I'm
-        </p>
+        <p className="font-mono text-sm mb-4" style={{ color: '#3b82f6' }}>Hi, I'm</p>
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 leading-tight">
           Pratyush Padhy
         </h1>
@@ -42,7 +36,7 @@ export default function Home() {
           CS Student & Machine Learning Engineer
         </h2>
         <p className="text-gray-400 text-lg max-w-2xl mb-8 leading-relaxed">
-          First-year Computer Science student at UC Irvine building ML models, 
+          First-year Computer Science student at UC Irvine building ML models,
           exploring deep learning, and turning data into meaningful insights.
         </p>
         <div className="flex gap-4 flex-wrap">
@@ -54,7 +48,7 @@ export default function Home() {
             View Projects
           </Link>
           
-            href="https://github.com/Pratyushpad27"
+            <a href="https://github.com/Pratyushpad27"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:text-white"
@@ -63,7 +57,7 @@ export default function Home() {
             GitHub
           </a>
           
-            href="https://www.linkedin.com/in/pratyush-padhy-b7017a269/"
+            <a href="https://www.linkedin.com/in/pratyush-padhy-b7017a269/"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:text-white"
@@ -74,8 +68,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section className="mb-24">
+      <section id="projects" className="mb-24">
         <h3 className="text-2xl font-bold text-white mb-2">Projects</h3>
         <p className="text-gray-400 mb-8">Things I've built</p>
         <div className="grid md:grid-cols-2 gap-6">
@@ -111,7 +104,7 @@ export default function Home() {
                   View Project →
                 </Link>
                 
-                  href={project.github}
+                  <a href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm font-medium text-gray-400 hover:text-white transition-colors"
@@ -124,7 +117,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Skills Section */}
       <section>
         <h3 className="text-2xl font-bold text-white mb-2">Skills</h3>
         <p className="text-gray-400 mb-8">Technologies I work with</p>
