@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion'
-import { ReactNode } from 'react'
+import type { ReactNode, CSSProperties } from 'react'
 
 interface GlowCardProps {
   children: ReactNode
   className?: string
   onClick?: () => void
-  style?: React.CSSProperties
+  style?: CSSProperties
 }
 
 export default function GlowCard({ children, className = '', onClick, style }: GlowCardProps) {
