@@ -1,71 +1,176 @@
-import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { NavLink, Link } from 'react-router-dom'
+import { motion, useScroll } from 'framer-motion'
 
+interface NavItem {
+  label: string
+  path: string
+  end?: boolean
+  icon: React.ReactNode
+}
 
-const navLinks = [
-  { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
-  { label: 'Projects', path: '/projects' },
-  { label: 'API Demo', path: '/api-demo' },
+const navLinks: NavItem[] = [
+  {
+    label: 'Home',
+    path: '/',
+    end: true,
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true">
+        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+        <polyline points="9 22 9 12 15 12 15 22" />
+      </svg>
+    ),
+  },
+  {
+    label: 'About',
+    path: '/about',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true">
+        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+        <circle cx="12" cy="7" r="4" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Projects',
+    path: '/projects',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true">
+        <rect x="3" y="3" width="7" height="7" rx="1" />
+        <rect x="14" y="3" width="7" height="7" rx="1" />
+        <rect x="14" y="14" width="7" height="7" rx="1" />
+        <rect x="3" y="14" width="7" height="7" rx="1" />
+      </svg>
+    ),
+  },
+  {
+    label: 'API Demo',
+    path: '/api-demo',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      </svg>
+    ),
+  },
 ]
 
 export default function Navbar() {
+  const { scrollYProgress } = useScroll()
+  const [isScrolled, setIsScrolled] = useState(false)
 
-  const [menuOpen, setMenuOpen] = useState(false)
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 40)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <nav className="fixed top-0 w-full z-50 border-b" style={{ backgroundColor: '#0a0a0f', borderColor: '#1e1e2e' }}>
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        
-        {/* Logo */}
-        <NavLink to="/" className="font-mono text-lg font-semibold" style={{ color: '#60a5fa' }}>
-          pratyush.dev
-        </NavLink>
+    <>
+      {/* Skip to main content for keyboard/screen reader users */}
+      <a href="#main-content" className="skip-link">
+        Skip to content
+      </a>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex gap-8">
+      {/* Top Navbar */}
+      <motion.nav
+        animate={{ paddingTop: isScrolled ? '10px' : '16px', paddingBottom: isScrolled ? '10px' : '16px' }}
+        transition={{ duration: 0.3 }}
+        className="fixed top-0 w-full z-50 border-b"
+        style={{
+          backgroundColor: isScrolled ? 'rgba(10, 10, 15, 0.92)' : 'rgba(10, 10, 15, 0.75)',
+          borderColor: 'rgba(255, 255, 255, 0.06)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+        }}
+        aria-label="Main navigation"
+      >
+        {/* Scroll progress bar */}
+        <motion.div
+          className="absolute top-0 left-0 right-0 h-0.5 origin-left"
+          style={{
+            scaleX: scrollYProgress,
+            background: 'linear-gradient(90deg, #3b82f6, #8b5cf6)',
+          }}
+          aria-hidden="true"
+        />
+
+        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+          <Link
+            to="/"
+            className="font-mono text-lg font-semibold transition-opacity hover:opacity-80"
+            style={{ color: '#60a5fa' }}
+            aria-label="Pratyush Padhy — Home"
+          >
+            pratyush.dev
+          </Link>
+
+          {/* Desktop links */}
+          <div className="hidden md:flex gap-8">
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.path}
+                to={link.path}
+                end={link.end}
+                className="text-sm font-medium transition-colors duration-200 relative py-1"
+              >
+                {({ isActive }) => (
+                  <>
+                    <span className={isActive ? 'text-blue-400' : 'text-gray-400 hover:text-white'}>
+                      {link.label}
+                    </span>
+                    {isActive && (
+                      <motion.span
+                        layoutId="activeNavBar"
+                        className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full"
+                        style={{ background: 'linear-gradient(90deg, #3b82f6, #8b5cf6)' }}
+                        aria-hidden="true"
+                      />
+                    )}
+                  </>
+                )}
+              </NavLink>
+            ))}
+          </div>
+        </div>
+      </motion.nav>
+
+      {/* Mobile Bottom Navigation */}
+      <nav
+        className="md:hidden fixed bottom-0 left-0 right-0 z-50 border-t"
+        style={{
+          backgroundColor: 'rgba(10, 10, 15, 0.96)',
+          borderColor: 'rgba(255, 255, 255, 0.08)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+        }}
+        aria-label="Mobile navigation"
+      >
+        <div className="flex items-center justify-around px-2 pt-2 pb-3">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
-              className={({ isActive }) =>
-                `text-sm font-medium transition-colors duration-200 ${
-                  isActive ? 'text-blue-400' : 'text-gray-400 hover:text-white'
-                }`
-              }
+              end={link.end}
+              className="flex flex-col items-center gap-1 px-3 py-1 rounded-xl min-w-[60px] min-h-[44px] justify-center transition-all duration-200"
+              aria-label={link.label}
             >
-              {link.label}
+              {({ isActive }) => (
+                <>
+                  <span style={{ color: isActive ? '#60a5fa' : '#6b7280' }}>
+                    {link.icon}
+                  </span>
+                  <span
+                    className="text-xs font-medium"
+                    style={{ color: isActive ? '#60a5fa' : '#6b7280' }}
+                  >
+                    {link.label}
+                  </span>
+                </>
+              )}
             </NavLink>
           ))}
         </div>
-
-        {/* Mobile Hamburger Button */}
-        <button
-          className="md:hidden flex flex-col gap-1.5 p-2"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-          <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
-          <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="md:hidden px-6 pb-4 flex flex-col gap-4 border-t" style={{ borderColor: '#1e1e2e' }}>
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.path}
-              to={link.path}
-              className="text-gray-400 hover:text-white text-sm font-medium transition-colors"
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.label}
-            </NavLink>
-          ))}
-        </div>
-      )}
-    </nav>
+      </nav>
+    </>
   )
 }
