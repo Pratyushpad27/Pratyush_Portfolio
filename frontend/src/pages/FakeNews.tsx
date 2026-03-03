@@ -42,6 +42,8 @@ export default function FakeNews() {
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null)
   const [showBack, setShowBack] = useState(false)
 
+  useEffect(() => { document.title = 'Language Model | Pratyush Padhy' }, [])
+
   useEffect(() => {
     const handleScroll = () => setShowBack(window.scrollY > 200)
     window.addEventListener('scroll', handleScroll, { passive: true })
@@ -165,11 +167,12 @@ export default function FakeNews() {
                   onKeyDown={(e) => e.key === 'Enter' && setLightbox(img)}
                   aria-label={`Expand ${img.alt}`}
                 >
-                  <div className="flex items-center justify-center p-4" style={{ backgroundColor: 'rgba(19,19,26,0.8)' }}>
+                  <div className="relative flex items-center justify-center p-4" style={{ backgroundColor: 'rgba(19,19,26,0.8)' }}>
+                    <div className="absolute inset-0 animate-pulse" style={{ backgroundColor: 'rgba(30,30,46,0.8)' }} />
                     <img
                       src={img.src}
                       alt={img.alt}
-                      className="w-full h-64 object-contain"
+                      className="relative w-full h-64 object-contain"
                       loading="lazy"
                     />
                   </div>

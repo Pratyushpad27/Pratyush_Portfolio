@@ -39,7 +39,7 @@ export default function Footer() {
           className="font-mono text-lg font-semibold transition-opacity hover:opacity-80"
           style={{ color: '#60a5fa' }}
         >
-          pratyush.dev
+          Pratyush Padhy
         </Link>
 
         {/* Copyright */}

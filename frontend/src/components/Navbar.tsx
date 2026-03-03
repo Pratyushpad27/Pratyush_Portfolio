@@ -101,7 +101,7 @@ export default function Navbar() {
             style={{ color: '#60a5fa' }}
             aria-label="Pratyush Padhy — Home"
           >
-            pratyush.dev
+            Pratyush Padhy
           </Link>
 
           {/* Desktop links */}

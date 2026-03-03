@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageTransition from '../components/animations/PageTransition'
@@ -26,6 +27,8 @@ const projects = [
 ]
 
 export default function Projects() {
+  useEffect(() => { document.title = 'Projects | Pratyush Padhy' }, [])
+
   return (
     <PageTransition>
       <main id="main-content" className="max-w-4xl mx-auto px-6 pt-28 md:pt-36 pb-28 md:pb-20">
@@ -40,16 +43,14 @@ export default function Projects() {
           {projects.map((project, i) => (
             <FadeUp key={project.title} delay={i * 0.1}>
               <GlowCard className="p-8">
-                <div className="flex items-start justify-between flex-wrap gap-4 mb-4">
-                  <div>
-                    <p className="font-mono text-xs mb-1" style={{ color: '#3b82f6' }}>
-                      Project {project.number}
-                    </p>
-                    <h2 className="text-2xl font-bold text-white">{project.title}</h2>
-                  </div>
+                <div className="mb-4">
+                  <p className="font-mono text-xs mb-1" style={{ color: '#3b82f6' }}>
+                    Project {project.number}
+                  </p>
+                  <h2 className="text-2xl font-bold text-white mb-3">{project.title}</h2>
                   {/* Outcome badge */}
                   <span
-                    className="text-xs px-3 py-1.5 rounded-full font-mono hidden md:block"
+                    className="text-xs px-3 py-1.5 rounded-full font-mono hidden md:inline-block"
                     style={{ backgroundColor: 'rgba(34,197,94,0.1)', color: '#4ade80', border: '1px solid rgba(34,197,94,0.2)' }}
                   >
                     ✓ {project.outcome}

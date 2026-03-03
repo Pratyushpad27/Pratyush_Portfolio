@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import PageTransition from '../components/animations/PageTransition'
 import FadeUp from '../components/animations/FadeUp'
@@ -19,6 +19,7 @@ interface ImageResult {
 }
 
 export default function ImageAPI() {
+  useEffect(() => { document.title = 'API Demo | Pratyush Padhy' }, [])
   const [image, setImage] = useState<ImageResult | null>(null)
   const [caption, setCaption] = useState<string>('')
   const [loadingImage, setLoadingImage] = useState(false)
@@ -101,9 +102,12 @@ export default function ImageAPI() {
   // Copy caption to clipboard with visual feedback
   const handleCopy = () => {
     if (!caption) return
-    navigator.clipboard.writeText(caption)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
+    navigator.clipboard.writeText(caption).then(() => {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    }).catch(() => {
+      setError('Could not copy to clipboard.')
+    })
   }
 
   return (

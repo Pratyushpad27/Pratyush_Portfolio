@@ -42,7 +42,8 @@ export default function EmotionDetection() {
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null)
   const [showBack, setShowBack] = useState(false)
 
-  // Show sticky back button after scrolling 200px
+  useEffect(() => { document.title = 'Emotion Detection | Pratyush Padhy' }, [])
+
   useEffect(() => {
     const handleScroll = () => setShowBack(window.scrollY > 200)
     window.addEventListener('scroll', handleScroll, { passive: true })
@@ -157,11 +158,12 @@ export default function EmotionDetection() {
                   onKeyDown={(e) => e.key === 'Enter' && setLightbox(img)}
                   aria-label={`Expand ${img.alt}`}
                 >
-                  <div className="flex items-center justify-center p-3" style={{ backgroundColor: 'rgba(19,19,26,0.8)' }}>
+                  <div className="relative flex items-center justify-center p-3" style={{ backgroundColor: 'rgba(19,19,26,0.8)' }}>
+                    <div className="absolute inset-0 animate-pulse" style={{ backgroundColor: 'rgba(30,30,46,0.8)' }} />
                     <img
                       src={img.src}
                       alt={img.alt}
-                      className="w-full h-48 object-contain"
+                      className="relative w-full h-48 object-contain"
                       loading="lazy"
                     />
                   </div>

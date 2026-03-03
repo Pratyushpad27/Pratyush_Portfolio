@@ -1,40 +1,128 @@
-import { motion } from 'framer-motion'
+import { useEffect, useRef } from 'react'
+import { motion, useInView, useMotionValue, useTransform, animate } from 'framer-motion'
 import PageTransition from '../components/animations/PageTransition'
 import FadeUp from '../components/animations/FadeUp'
 import GlowCard from '../components/animations/GlowCard'
 import StaggerContainer, { staggerItem } from '../components/animations/StaggerContainer'
 
-const stats = [
-  { value: '35K+', label: 'Images trained on' },
-  { value: '200K+', label: 'Characters processed' },
-  { value: '50+', label: 'Students mentored' },
-  { value: 'Top 10', label: 'Berkeley ROAR' },
-]
+// ── Animated counter component ──────────────────────────────────
+function AnimatedCounter({ value, suffix = '', label }: { value: number; suffix?: string; label: string }) {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '-40px' })
+  const count = useMotionValue(0)
+  const rounded = useTransform(count, (v) => Math.round(v))
 
+  useEffect(() => {
+    if (isInView) {
+      animate(count, value, { duration: 1.8, ease: [0.25, 0.46, 0.45, 0.94] })
+    }
+  }, [isInView, count, value])
+
+  return (
+    <motion.div
+      ref={ref}
+      variants={staggerItem}
+      className="rounded-xl p-5 text-center"
+      style={{
+        background: 'rgba(255,255,255,0.03)',
+        backdropFilter: 'blur(10px)',
+        border: '1px solid rgba(255,255,255,0.08)',
+      }}
+      whileHover={{
+        borderColor: 'rgba(59,130,246,0.35)',
+        boxShadow: '0 0 30px rgba(59,130,246,0.12)',
+      }}
+    >
+      <p className="text-2xl font-bold gradient-text mb-1">
+        <motion.span>{rounded}</motion.span>{suffix}
+      </p>
+      <p className="text-gray-500 text-xs">{label}</p>
+    </motion.div>
+  )
+}
+
+// ── Static counter for non-numeric stats ────────────────────────
+function StaticStat({ value, label }: { value: string; label: string }) {
+  return (
+    <motion.div
+      variants={staggerItem}
+      className="rounded-xl p-5 text-center"
+      style={{
+        background: 'rgba(255,255,255,0.03)',
+        backdropFilter: 'blur(10px)',
+        border: '1px solid rgba(255,255,255,0.08)',
+      }}
+      whileHover={{
+        borderColor: 'rgba(59,130,246,0.35)',
+        boxShadow: '0 0 30px rgba(59,130,246,0.12)',
+      }}
+    >
+      <p className="text-2xl font-bold gradient-text mb-1">{value}</p>
+      <p className="text-gray-500 text-xs">{label}</p>
+    </motion.div>
+  )
+}
+
+// ── Data ─────────────────────────────────────────────────────────
 const experiences = [
   {
     role: 'Undergraduate Mentor',
     org: 'Data@UCI',
     period: 'Jan 2026 – Present',
-    desc: 'Mentoring 50+ students on data projects, Kaggle datasets, and ML model development using Python and Google Colab.',
+    desc: 'Mentoring 50+ students on data-focused projects using Python, HTML, and JavaScript. Guiding mentees through data collection, variable selection, exploratory analysis with Kaggle datasets, and predictive model development using Google Colab.',
+  },
+  {
+    role: 'Software Intern',
+    org: 'Computers 4 Kids',
+    period: 'Aug 2023 – May 2025',
+    desc: 'Assisted in planning and executing the collection and refurbishment of computers for underrepresented students. Led meetings proposing scalable outreach initiatives and established a school-based chapter with 200+ members.',
+  },
+  {
+    role: 'Software Intern',
+    org: 'Robotics for All',
+    period: 'June 2023 – Aug 2024',
+    desc: 'Contributed to the development of an AI-powered chatbot to enhance website functionality. Designed an online training system for volunteer tutors. Awarded the Presidential Service Award (Gold) for 250+ volunteer hours.',
   },
   {
     role: 'Research Mentee',
     org: 'iLab Stanford',
     period: 'Dec 2023 – July 2024',
-    desc: 'Conducted RNA-seq research on non-small cell lung cancer data under Stanford researchers using R and Bioconductor.',
+    desc: 'Conducted research on human bulk RNA-seq data for non-small cell lung cancer (GSE268175). Generated graphical and statistical analyses using R under Dr. Qian Wang and Stanford researchers.',
   },
   {
     role: 'Competitor',
     org: 'Berkeley ROAR',
     period: 'June – Aug 2023',
-    desc: 'Trained autonomous vehicles using ML and neural networks in Python, placing top 10 out of all competitors.',
+    desc: 'Trained under UC Berkeley faculty in Python, AI, and autonomous systems. Optimized an autonomous vehicle simulation using ML, neural networks, and decision trees. Placed top 10.',
   },
 ]
 
 const clubs = ["Data@UCI", "AI@UCI", "Cyber@UCI", "Hack@UCI", "Dean's Honor List"]
 
+const awards = [
+  'California ELC Award (Top 9% of Students)',
+  'AP Scholar with Distinction',
+  '5th Place @ DECA State (EIP)',
+  'Presidential Service Award (Gold)',
+]
+
+const certifications = [
+  'PCEP — Python',
+  'Coursera UCSC — C++',
+  'WorldTutor — Java',
+]
+
+const skillGroups: Record<string, string[]> = {
+  'Languages': ['Python', 'Java', 'R', 'C++', 'TypeScript', 'JavaScript', 'HTML', 'CSS'],
+  'ML / AI': ['TensorFlow', 'Keras', 'CNNs', 'LSTMs', 'scikit-learn', 'Machine Learning'],
+  'Libraries': ['numpy', 'Pandas', 'Matplotlib', 'OS', 'JSON'],
+  'Web': ['React', 'Node.js', 'Express', 'Tailwind CSS'],
+  'Tools': ['Git', 'VS Code', 'PyCharm', 'Google Colab', 'Vite'],
+}
+
 export default function About() {
+  useEffect(() => { document.title = 'About | Pratyush Padhy' }, [])
+
   return (
     <PageTransition>
       <main id="main-content" className="max-w-4xl mx-auto px-6 pt-28 md:pt-36 pb-28 md:pb-20">
@@ -42,7 +130,6 @@ export default function About() {
         {/* Header + Photo */}
         <FadeUp>
           <section className="mb-16 flex flex-col md:flex-row gap-12 items-start">
-            {/* Animated gradient glow behind photo */}
             <div className="relative flex-shrink-0 w-48 h-48">
               <motion.div
                 className="absolute inset-0 rounded-2xl"
@@ -76,35 +163,20 @@ export default function About() {
               <p className="text-gray-400 leading-relaxed">
                 Previously placed top 10 at Berkeley ROAR training autonomous vehicles with ML,
                 conducted RNA-seq research at Stanford iLab on lung cancer data, and earned the
-                Presidential Service Award for 250+ volunteer hours.
+                Presidential Service Award (Gold) for 250+ volunteer hours.
               </p>
             </div>
           </section>
         </FadeUp>
 
-        {/* Stats row */}
+        {/* Stats row — animated counters */}
         <FadeUp delay={0.1}>
           <section className="mb-16">
             <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {stats.map(({ value, label }) => (
-                <motion.div
-                  key={label}
-                  variants={staggerItem}
-                  className="rounded-xl p-5 text-center"
-                  style={{
-                    background: 'rgba(255,255,255,0.03)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                  }}
-                  whileHover={{
-                    borderColor: 'rgba(59,130,246,0.35)',
-                    boxShadow: '0 0 30px rgba(59,130,246,0.12)',
-                  }}
-                >
-                  <p className="text-2xl font-bold gradient-text mb-1">{value}</p>
-                  <p className="text-gray-500 text-xs">{label}</p>
-                </motion.div>
-              ))}
+              <AnimatedCounter value={35} suffix="K+" label="Images trained on" />
+              <AnimatedCounter value={200} suffix="K+" label="Characters processed" />
+              <AnimatedCounter value={50} suffix="+" label="Students mentored" />
+              <StaticStat value="Top 10" label="Berkeley ROAR" />
             </StaggerContainer>
           </section>
         </FadeUp>
@@ -145,7 +217,6 @@ export default function About() {
           <section className="mb-16">
             <h2 className="text-2xl font-bold text-white mb-8">Experience</h2>
             <div className="relative">
-              {/* Animated vertical line */}
               <motion.div
                 className="absolute left-[15px] top-2 bottom-2 w-px"
                 initial={{ scaleY: 0, originY: '0%' }}
@@ -158,9 +229,8 @@ export default function About() {
 
               <div className="flex flex-col gap-6">
                 {experiences.map((exp, i) => (
-                  <FadeUp key={exp.role} delay={i * 0.1}>
+                  <FadeUp key={exp.org + exp.role} delay={i * 0.08}>
                     <div className="flex gap-6 items-start">
-                      {/* Timeline dot */}
                       <div
                         className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 z-10 mt-1"
                         style={{
@@ -190,15 +260,93 @@ export default function About() {
           </section>
         </FadeUp>
 
-        {/* Links */}
+        {/* Skills */}
         <FadeUp delay={0.25}>
+          <section className="mb-16">
+            <h2 className="text-2xl font-bold text-white mb-6">Technical Skills</h2>
+            <div className="flex flex-col gap-5">
+              {Object.entries(skillGroups).map(([category, skills]) => (
+                <div key={category}>
+                  <p className="text-gray-500 text-xs font-mono mb-3 uppercase tracking-wider">
+                    {category}
+                  </p>
+                  <StaggerContainer className="flex flex-wrap gap-2">
+                    {skills.map((skill) => (
+                      <motion.span
+                        key={skill}
+                        variants={staggerItem}
+                        className="px-3 py-1.5 rounded-lg text-sm font-mono cursor-default"
+                        style={{
+                          background: 'rgba(255,255,255,0.03)',
+                          border: '1px solid rgba(255,255,255,0.08)',
+                          color: '#9ca3af',
+                        }}
+                        whileHover={{
+                          borderColor: 'rgba(59,130,246,0.4)',
+                          color: '#ffffff',
+                          background: 'rgba(59,130,246,0.08)',
+                        }}
+                      >
+                        {skill}
+                      </motion.span>
+                    ))}
+                  </StaggerContainer>
+                </div>
+              ))}
+            </div>
+          </section>
+        </FadeUp>
+
+        {/* Awards & Certifications */}
+        <FadeUp delay={0.3}>
+          <section className="mb-16 grid md:grid-cols-2 gap-6">
+            <div>
+              <h2 className="text-2xl font-bold text-white mb-4">Awards</h2>
+              <GlowCard className="p-5">
+                <ul className="flex flex-col gap-2.5">
+                  {awards.map((award) => (
+                    <li key={award} className="flex gap-3 text-gray-400 text-sm">
+                      <span style={{ color: '#3b82f6' }} className="flex-shrink-0">→</span>
+                      {award}
+                    </li>
+                  ))}
+                </ul>
+              </GlowCard>
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-white mb-4">Certifications</h2>
+              <GlowCard className="p-5">
+                <ul className="flex flex-col gap-2.5">
+                  {certifications.map((cert) => (
+                    <li key={cert} className="flex gap-3 text-gray-400 text-sm">
+                      <span style={{ color: '#3b82f6' }} className="flex-shrink-0">→</span>
+                      {cert}
+                    </li>
+                  ))}
+                </ul>
+              </GlowCard>
+            </div>
+          </section>
+        </FadeUp>
+
+        {/* Links */}
+        <FadeUp delay={0.35}>
           <section className="flex gap-4 flex-wrap">
             <a
-              href="https://github.com/Pratyushpad27"
+              href="/Pratyush_Padhy_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 rounded-lg font-medium text-white transition-all duration-200 hover:opacity-90 hover:scale-[1.02]"
               style={{ background: 'linear-gradient(135deg, #3b82f6, #6366f1)' }}
+            >
+              Resume
+            </a>
+            <a
+              href="https://github.com/Pratyushpad27"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:text-white"
+              style={{ border: '1px solid rgba(59,130,246,0.4)', color: '#60a5fa' }}
             >
               GitHub
             </a>
@@ -207,7 +355,7 @@ export default function About() {
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 rounded-lg font-medium transition-all duration-200 hover:text-white"
-              style={{ border: '1px solid rgba(59,130,246,0.4)', color: '#60a5fa' }}
+              style={{ border: '1px solid rgba(255,255,255,0.08)', color: '#9ca3af' }}
             >
               LinkedIn
             </a>
