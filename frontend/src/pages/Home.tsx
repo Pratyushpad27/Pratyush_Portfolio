@@ -12,6 +12,7 @@ const projects = [
     tech: ['Python', 'TensorFlow', 'CNN', 'VGG16'],
     path: '/projects/emotion-detection',
     github: 'https://github.com/Pratyushpad27/fer2013-emotion-detection',
+    demo: 'https://emotion-detec.netlify.app/',
     number: '01',
     thumbnail: '/emotion/cnn_confusion_matrix.png',
   },
@@ -307,6 +308,17 @@ export default function Home() {
                           >
                             View Project →
                           </Link>
+                          {'demo' in project && project.demo && (
+                            <a
+                              href={project.demo}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-sm font-medium transition-colors hover:text-white"
+                              style={{ color: '#10b981' }}
+                            >
+                              Live Demo ↗
+                            </a>
+                          )}
                           <a
                             href={project.github}
                             target="_blank"

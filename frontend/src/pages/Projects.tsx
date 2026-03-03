@@ -13,6 +13,7 @@ const projects = [
     tech: ['Python', 'TensorFlow', 'Keras', 'CNN', 'VGG16', 'OpenCV'],
     path: '/projects/emotion-detection',
     github: 'https://github.com/Pratyushpad27/fer2013-emotion-detection',
+    demo: 'https://emotion-detec.netlify.app/',
     outcome: 'VGG16 transfer learning outperformed all baselines',
   },
   {
@@ -73,7 +74,7 @@ export default function Projects() {
                   ))}
                 </div>
 
-                <div className="flex gap-4">
+                <div className="flex flex-wrap gap-3">
                   <Link
                     to={project.path}
                     className="px-5 py-2 rounded-lg font-medium text-white text-sm transition-all duration-200 hover:opacity-90 hover:scale-[1.02]"
@@ -81,6 +82,17 @@ export default function Projects() {
                   >
                     Explore Project →
                   </Link>
+                  {'demo' in project && project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-5 py-2 rounded-lg font-medium text-sm transition-all duration-200 hover:opacity-90 hover:scale-[1.02] text-white"
+                      style={{ background: 'linear-gradient(135deg, #10b981, #059669)' }}
+                    >
+                      Live Demo ↗
+                    </a>
+                  )}
                   <a
                     href={project.github}
                     target="_blank"

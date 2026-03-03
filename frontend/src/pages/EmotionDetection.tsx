@@ -88,15 +88,26 @@ export default function EmotionDetection() {
                 </span>
               ))}
             </div>
-            <a
-              href="https://github.com/Pratyushpad27/fer2013-emotion-detection"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-6 py-3 rounded-lg font-medium text-white transition-all duration-200 hover:opacity-90 hover:scale-[1.02]"
-              style={{ background: 'linear-gradient(135deg, #3b82f6, #6366f1)' }}
-            >
-              View on GitHub ↗
-            </a>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="https://emotion-detec.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-6 py-3 rounded-lg font-medium text-white transition-all duration-200 hover:opacity-90 hover:scale-[1.02]"
+                style={{ background: 'linear-gradient(135deg, #10b981, #059669)' }}
+              >
+                Live Demo ↗
+              </a>
+              <a
+                href="https://github.com/Pratyushpad27/fer2013-emotion-detection"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-6 py-3 rounded-lg font-medium text-white transition-all duration-200 hover:opacity-90 hover:scale-[1.02]"
+                style={{ background: 'linear-gradient(135deg, #3b82f6, #6366f1)' }}
+              >
+                View on GitHub ↗
+              </a>
+            </div>
           </section>
         </FadeUp>
 
