@@ -393,7 +393,7 @@ export default function Home() {
                     View my work
                   </a>
                   <a
-                    href="/Pratyush_Resume.pdf"
+                    href="/Pratyush_Padhy_Resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-7 py-3 text-sm font-medium transition-all duration-200 hover:text-white hover:border-white/20 active:scale-95"
@@ -491,7 +491,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex gap-6">
-                  <a href="/Pratyush_Resume.pdf" target="_blank" rel="noopener noreferrer" className="text-sm font-medium transition-colors hover:text-white" style={{ color: '#ffffff' }}>Resume ↗</a>
+                  <a href="/Pratyush_Padhy_Resume.pdf" target="_blank" rel="noopener noreferrer" className="text-sm font-medium transition-colors hover:text-white" style={{ color: '#ffffff' }}>Resume ↗</a>
                   <a href="https://www.linkedin.com/in/pratyushpad" target="_blank" rel="noopener noreferrer" className="text-sm font-medium transition-colors hover:text-white" style={{ color: '#9a9a9a' }}>LinkedIn ↗</a>
                   <a href="mailto:ppadhy@uci.edu" className="text-sm font-medium transition-colors hover:text-white" style={{ color: '#9a9a9a' }}>Email ↗</a>
                 </div>

@@ -12,7 +12,7 @@ const pages = [
   { label: 'Face Pulse', path: '/projects/emotion-detection', keywords: 'face pulse fer2013 cnn vgg16 emotion detection facial' },
   { label: 'Argus AI', path: '/projects/argus-ai', keywords: 'argus yolov8 object detection traffic violations dashcam' },
 
-  { label: 'Resume', path: '/Pratyush_Resume.pdf', keywords: 'resume cv pdf download' },
+  { label: 'Resume', path: '/Pratyush_Padhy_Resume.pdf', keywords: 'resume cv pdf download' },
   { label: 'GitHub', path: 'https://github.com/pratyushpad', keywords: 'github code source' },
   { label: 'LinkedIn', path: 'https://www.linkedin.com/in/pratyushpad', keywords: 'linkedin social connect' },
   { label: 'Email', path: 'mailto:ppadhy@uci.edu', keywords: 'email contact mail' },
