@@ -1,44 +1,26 @@
 # Pratyush Padhy — Portfolio
 
-Personal portfolio showcasing ML/AI projects, built with React, TypeScript, and Tailwind CSS.
+Personal portfolio site showcasing ML/AI projects (Chronicle, Forge, Lumina, Argus, Face-Pulse) with detailed writeups.
 
 **Live site:** [pratyushp-portfolio.netlify.app](https://pratyushp-portfolio.netlify.app)
 
 ## Tech Stack
 
-React 19 · TypeScript · Vite · Tailwind CSS · Framer Motion
-
-## Features
-
-- Two ML project showcases with detailed writeups and result visualizations
-- Responsive design with mobile bottom navigation
-- Animated page transitions and scroll-triggered animations
-- Command palette (Cmd+K / Ctrl+K)
-- Code-split routes with lazy loading
-- Accessibility: skip link, ARIA labels, keyboard navigation, reduced-motion support
-
-## Project Structure
-
-```
-frontend/
-├── src/
-│   ├── pages/          # Home, About, Projects, EmotionDetection, LanguageModel
-│   ├── components/     # Navbar, Footer, CommandPalette, ErrorBoundary, Lightbox
-│   └── components/animations/  # FadeUp, GlowCard, StaggerContainer, PageTransition
-└── public/             # Static assets, resume PDF, project images
-```
+React 19 · TypeScript · Vite · Tailwind CSS · Framer Motion · React Router
 
 ## Running Locally
 
 ```bash
 cd frontend
 npm install
-npm run dev
+npm run dev      # dev server
+npm run build    # type-check + production build
+npm run preview  # preview the production build
 ```
 
 ## Deployment
 
 Hosted on **Netlify**:
+- Base directory: `frontend`
 - Build command: `npm run build`
 - Publish directory: `dist`
-- Base directory: `frontend`
