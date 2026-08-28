@@ -65,7 +65,7 @@ const roles = [
   'Machine Learning Engineer.',
   'Deep Learning Researcher.',
   'CS Student @ UC Irvine.',
-  'Incoming SDE Intern @ Amazon.',
+  'Incoming SDE Intern @ AWS.',
 ]
 
 const sections = ['Hero', 'About', 'Projects', 'Contact']
@@ -196,7 +196,7 @@ function TerminalCard() {
     { prompt: true, text: 'status', color: '' },
     { prompt: false, text: '✦ open to ML & software internships', color: '#ffffff' },
     { prompt: true, text: 'current --list', color: '' },
-    { prompt: false, text: '├── Incoming SDE Intern @ Amazon', color: '#e5e7eb' },
+    { prompt: false, text: '├── Incoming SDE Intern @ AWS', color: '#e5e7eb' },
     { prompt: false, text: '├── UC Irvine CS, Class of 2028', color: '#e5e7eb' },
     { prompt: false, text: '└── Robotics · RL & Imitation Learning', color: '#e5e7eb' },
     { prompt: true, text: 'location', color: '' },
@@ -352,6 +352,27 @@ export default function Home() {
               {/* Left — main text */}
               <motion.div variants={stagger.container} initial="hidden" animate="show">
 
+                {/* Incoming role badge */}
+                <motion.div variants={stagger.item} className="mb-6">
+                  <span
+                    className="inline-flex items-center gap-2 px-3 py-1.5 font-mono text-[11px] uppercase"
+                    style={{
+                      color: '#e5e7eb',
+                      letterSpacing: '0.18em',
+                      border: '1px solid rgba(255,255,255,0.18)',
+                      background: 'rgba(255,255,255,0.04)',
+                      borderRadius: 999,
+                    }}
+                  >
+                    <span
+                      className="inline-block w-1.5 h-1.5 animate-pulse"
+                      style={{ background: '#ffffff', borderRadius: '50%' }}
+                      aria-hidden="true"
+                    />
+                    Incoming SDE Intern @ AWS · Fall 2026
+                  </span>
+                </motion.div>
+
                 {/* Name — single h1, inline gradient on last name */}
                 <motion.h1
                   variants={stagger.item}
@@ -459,7 +480,7 @@ export default function Home() {
                 </h2>
                 <p className="text-sm leading-relaxed mb-10" style={{ color: '#d0d0d0', lineHeight: 1.85 }}>
                   I build deep learning models from scratch and ship full-stack ML systems. Incoming SDE intern at
-                  Amazon for Fall 2026, and most recently an AI/ML intern at TCS's Medical Robotics Center, where I
+                  AWS for Fall 2026, and most recently an AI/ML intern at TCS's Medical Robotics Center, where I
                   trained reinforcement- and imitation-learning models that teach robots how to act.
                   Previously built course-planning tools at Ready Tutor, mentored
                   50+ students at Data@UCI, and conducted RNA-seq research at Stanford iLab.
@@ -479,7 +500,7 @@ export default function Home() {
                   </p>
                   <ul className="space-y-2">
                     {[
-                      'Incoming SDE intern at Amazon — Fall 2026',
+                      'Incoming SDE intern at AWS — Fall 2026',
                       'Building full-stack ML tools & research projects',
                       'Open to ML & software internship opportunities',
                     ].map((item) => (

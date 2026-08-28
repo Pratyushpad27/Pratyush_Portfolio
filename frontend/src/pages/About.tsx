@@ -43,9 +43,9 @@ function AnimatedCounter({ value, suffix = '', label }: { value: number; suffix?
 const experiences = [
   {
     role: 'Incoming SDE Intern',
-    org: 'Amazon',
+    org: 'Amazon Web Services (AWS)',
     period: 'Fall 2026',
-    desc: 'Joining Amazon as a Software Development Engineer Intern for Fall 2026.',
+    desc: 'Joining AWS as a Software Development Engineer Intern for Fall 2026.',
   },
   {
     role: 'AI/ML Intern',
@@ -154,7 +154,7 @@ export default function About() {
               </div>
               <p className="text-sm leading-relaxed mb-6" style={{ color: '#d0d0d0' }}>
                 Computer Science student at UC Irvine (Dean's Honor List) with a passion
-                for machine learning and AI. Incoming SDE intern at Amazon for Fall 2026, and most recently an AI/ML
+                for machine learning and AI. Incoming SDE intern at AWS for Fall 2026, and most recently an AI/ML
                 intern at TCS's Medical Robotics Center, where I trained reinforcement- and imitation-learning models
                 that teach robots how to act. Previously built full-stack
                 course-planning tools at Ready Tutor, mentored 50+ students at Data@UCI, and conducted RNA-seq
