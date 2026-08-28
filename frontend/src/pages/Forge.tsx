@@ -14,7 +14,7 @@ const recipe = [
   },
   {
     name: 'GRPO',
-    description: 'Group Relative Policy Optimization samples multiple completions per problem and reinforces the ones a rule-based checker verifies as correct — no reward model needed.',
+    description: 'Group Relative Policy Optimization samples multiple completions per problem and reinforces the ones a rule-based checker verifies as correct, with no separate reward model needed.',
     icon: '02',
     accent: '#d4d4d4',
   },
@@ -25,7 +25,7 @@ const recipe = [
     accent: '#a3a3a3',
   },
   {
-    name: 'Forged Model',
+    name: 'Tuned Model',
     description: '86 minutes of training on a single 8GB RTX 5060 later, the same architecture solves problems it previously got wrong.',
     icon: '04',
     accent: '#e0a172',
@@ -33,15 +33,15 @@ const recipe = [
 ]
 
 const images = [
-  { src: '/forge/forge_preview.png', alt: 'Forge — Forged to Reason, playground comparing cold and forged model' },
+  { src: '/forge/forge_preview.png', alt: 'Forge playground comparing the base and GRPO-tuned model side by side' },
 ]
 
 const techTags = ['Python', 'PyTorch', 'Transformers', 'GRPO', 'Qwen2.5', 'Reinforcement Learning']
 
 const learned = [
-  'Verifiable rewards (a math checker) sidestep the need for a separate reward model — the checker is the reward model.',
+  'Verifiable rewards (a math checker) sidestep the need for a separate reward model: the checker is the reward model.',
   "GRPO's group-relative baseline made training stable enough to run on a single consumer GPU instead of a multi-GPU cluster.",
-  'Measuring forgetting on an unrelated benchmark (ARC) mattered as much as measuring the gain — a model that reasons better but forgets everything else isn\'t actually better.',
+  'Measuring forgetting on an unrelated benchmark (ARC) mattered as much as measuring the gain. A model that reasons better but forgets everything else isn\'t actually better.',
   'Small models can pick up meaningfully better reasoning from RL alone, without ever seeing a labeled chain-of-thought.',
 ]
 
@@ -100,9 +100,9 @@ export default function Forge() {
               </h1>
 
               <p className="text-base leading-relaxed max-w-2xl mb-8" style={{ color: '#d0d0d0', lineHeight: 1.85 }}>
-                Qwen2.5-1.5B, heat-treated with GRPO — the reinforcement-learning recipe behind DeepSeek-R1 — trained
-                against a rule-based math checker on a single 8GB consumer GPU. An interactive playground replays the
-                cold base model and the forged model solving the same problem, side by side.
+                Qwen2.5-1.5B, fine-tuned with GRPO (the reinforcement-learning recipe behind DeepSeek-R1) against
+                a rule-based math checker on a single 8GB consumer GPU. An interactive playground replays the
+                base model and the tuned model solving the same problem, side by side.
               </p>
 
               {/* Stats */}
@@ -176,8 +176,8 @@ export default function Forge() {
               >
                 Fine-tuning a language model to reason better usually means either massive compute or a labeled
                 dataset of reasoning traces. Forge tests a third path: reinforcement learning with verifiable
-                rewards — a small model, a cheap GPU, and a reward signal that's just "is the final answer
-                correct" — the same recipe DeepSeek-R1 used at a much larger scale.
+                rewards. A small model, a cheap GPU, and a reward signal that's just "is the final answer
+                correct" is the same recipe DeepSeek-R1 used at a much larger scale.
               </div>
             </section>
           </FadeUp>
@@ -218,7 +218,7 @@ export default function Forge() {
           {/* Preview */}
           <FadeUp delay={0.05}>
             <section>
-              <SectionHeading number="03" label="Output" title="Playground — Cold vs. Forged" />
+              <SectionHeading number="03" label="Output" title="Playground: Base vs. Tuned" />
               <div className="space-y-4">
                 {images.map((img) => (
                   <motion.div

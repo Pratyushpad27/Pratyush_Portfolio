@@ -14,7 +14,7 @@ const pipeline = [
   },
   {
     name: 'YOLOv8 Inference',
-    description: 'YOLOv8s runs object detection across 23 classes — vehicles, signs, lights, pedestrians.',
+    description: 'YOLOv8s runs object detection across 23 classes: vehicles, signs, lights, pedestrians.',
     icon: '02',
     accent: '#d4d4d4',
   },
@@ -39,7 +39,7 @@ const images = [
 const techTags = ['Python', 'YOLOv8', 'FastAPI', 'Next.js', 'TypeScript', 'Docker', 'Google Cloud Run']
 
 const learned = [
-  'YOLOv8s achieves sub-35ms inference — fast enough for real-time dashcam review without heavy GPU hardware.',
+  'YOLOv8s achieves sub-35ms inference, fast enough for real-time dashcam review without heavy GPU hardware.',
   'Rule-based violation logic layered on top of raw detections is far more interpretable than end-to-end classification.',
   'Spatial proximity between detected objects (e.g. vehicle near red light) is a simple but effective proxy for violation detection.',
   'Containerizing with Docker and deploying to Cloud Run decouples the ML backend from the frontend and makes scaling straightforward.',
@@ -100,7 +100,7 @@ export default function ArgusAI() {
               </h1>
 
               <p className="text-base leading-relaxed max-w-2xl mb-8" style={{ color: '#d0d0d0', lineHeight: 1.85 }}>
-                A full-stack traffic violation detection system — upload a dashcam frame, run YOLOv8 inference
+                A full-stack traffic violation detection system: upload a dashcam frame, run YOLOv8 inference
                 across 23 object classes, and get a structured violation report back in under 35ms. Built with
                 a spatial rule engine that reads like an operational review, not just a raw model output.
               </p>
@@ -175,7 +175,7 @@ export default function ArgusAI() {
                 }}
               >
                 Traffic violations are a leading cause of road accidents, but manual review of dashcam footage
-                is slow and inconsistent. Most CV demos just draw bounding boxes — they don't produce structured,
+                is slow and inconsistent. Most CV demos just draw bounding boxes; they don't produce structured,
                 human-readable violation reports. Argus AI bridges the gap: it runs object detection and then applies
                 rule logic so the output reads like an operational finding, not raw model output.
               </div>

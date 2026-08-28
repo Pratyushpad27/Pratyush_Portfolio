@@ -110,7 +110,7 @@ export default function EmotionDetection() {
 
               <p className="text-base leading-relaxed max-w-2xl mb-8" style={{ color: '#d0d0d0', lineHeight: 1.85 }}>
                 A real-time emotion recognition system and comparative study of 4 deep learning architectures
-                for detecting human emotions from facial images — from a simple MLP all the way to VGG16 transfer learning on 35,000+ images.
+                for detecting human emotions from facial images, from a simple MLP all the way to VGG16 transfer learning on 35,000+ images.
               </p>
 
               {/* Stats */}

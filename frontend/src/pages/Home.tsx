@@ -34,7 +34,7 @@ const projects = [
   {
     title: 'Forge',
     subtitle: 'Reinforcement Learning · LLM Reasoning',
-    description: 'Fine-tuned Qwen2.5-1.5B with GRPO against a math checker on a single 8GB GPU — GSM8K accuracy climbed from 58.8% to 70.0% with no measurable forgetting.',
+    description: 'Fine-tuned Qwen2.5-1.5B with GRPO against a math checker on a single 8GB GPU. GSM8K accuracy climbed from 58.8% to 70.0% with no measurable forgetting.',
     tech: ['Python', 'PyTorch', 'GRPO', 'Qwen2.5'],
     path: '/projects/forge',
     github: 'https://github.com/pratyushpad/Forge',
@@ -45,7 +45,7 @@ const projects = [
   {
     title: 'Lumina',
     subtitle: 'RAG · Multimodal Retrieval',
-    description: "A grounded, multimodal RAG workbench — upload PDFs, images, and text, and get cited answers backed by your own documents instead of the model's memory.",
+    description: "A grounded, multimodal RAG workbench: upload PDFs, images, and text, and get cited answers backed by your own documents instead of the model's memory.",
     tech: ['Python', 'RAG', 'Vector Search', 'Next.js'],
     path: '/projects/lumina',
     github: 'https://github.com/pratyushpad/Lumina',
@@ -390,7 +390,7 @@ export default function Home() {
                   className="text-lg font-light mb-4"
                   style={{ color: '#d0d0d0', letterSpacing: '-0.01em', lineHeight: 1.5 }}
                 >
-                  I build <span className="text-white font-medium">intelligent systems</span> — deep learning models,{' '}
+                  I build <span className="text-white font-medium">intelligent systems</span>: deep learning models,{' '}
                   NLP experiments, and things that learn from data.
                 </motion.p>
 
@@ -500,7 +500,7 @@ export default function Home() {
                   </p>
                   <ul className="space-y-2">
                     {[
-                      'Incoming SDE intern at AWS — Fall 2026',
+                      'Incoming SDE intern at AWS, Fall 2026',
                       'Building full-stack ML tools & research projects',
                       'Open to ML & software internship opportunities',
                     ].map((item) => (

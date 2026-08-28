@@ -101,7 +101,7 @@ export default function Chronicle() {
 
               <p className="text-base leading-relaxed max-w-2xl mb-8" style={{ color: '#d0d0d0', lineHeight: 1.85 }}>
                 A job aggregation platform that ingests live postings directly from the ATS systems companies
-                actually use — Greenhouse, Lever, Ashby — normalizes and deduplicates them across sources, then
+                actually use (Greenhouse, Lever, Ashby), normalizes and deduplicates them across sources, then
                 ranks them with a hybrid semantic search layer instead of keyword matching.
               </p>
 

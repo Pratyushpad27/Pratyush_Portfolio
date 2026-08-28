@@ -51,7 +51,7 @@ const experiences = [
     role: 'AI/ML Intern',
     org: 'TCS Medical Robotics Center',
     period: 'Jun – Aug 2026',
-    desc: "Worked on the team teaching robots how to act, not just perceive. Benchmarked task-specific reinforcement learning against a generalist vision-language-action policy (SmolVLA 450M, LeRobot) across 250+ episodes on an AgileX Piper 6-DOF arm — the pixel-only VLA matched state-based RL, 85.3% to 81.5%. Diagnosed a sparse-reward exploration collapse and solved it through action-space reparameterization — no reward shaping, no demonstrations — training PPO to 81.5% ± 3.3% liquid-transfer success across three seeds. Extended FluidLab (ICLR '23) into a robotics platform with URDF forward-kinematics joint control, analytic SDF vessels, and three upstream engine-bug fixes, and built behavior-tree manipulation pipelines with automated recovery in ROS2 and Gazebo.",
+    desc: "Worked on the team teaching robots how to act, not just perceive. Benchmarked task-specific reinforcement learning against a generalist vision-language-action policy (SmolVLA 450M, LeRobot) across 250+ episodes on an AgileX Piper 6-DOF arm; the pixel-only VLA matched state-based RL, 85.3% to 81.5%. Diagnosed a sparse-reward exploration collapse and solved it through action-space reparameterization (no reward shaping, no demonstrations), training PPO to 81.5% ± 3.3% liquid-transfer success across three seeds. Extended FluidLab (ICLR '23) into a robotics platform with URDF forward-kinematics joint control, analytic SDF vessels, and three upstream engine-bug fixes, and built behavior-tree manipulation pipelines with automated recovery in ROS2 and Gazebo.",
   },
   {
     role: 'API Developer',
@@ -63,7 +63,7 @@ const experiences = [
     role: 'Software Developer Intern',
     org: 'Ready Tutor',
     period: 'Mar – Jun 2026',
-    desc: 'Built CourseEater — a full-stack course planner for UC Irvine students. Engineered a scalable MongoDB/SQLite schema class with React useContext integration, replacing 10+ component-level instances across the stack. Built a Fall Quarter catalog with real-time retrieval of 1,200+ UCI courses and resolved 30+ bugs, contributing to securing $5,500 in funding. Redesigned the year-planning data model with a JSON-stringified array schema to support fully dynamic multi-year scheduling.',
+    desc: 'Built CourseEater, a full-stack course planner for UC Irvine students. Engineered a scalable MongoDB/SQLite schema class with React useContext integration, replacing 10+ component-level instances across the stack. Built a Fall Quarter catalog with real-time retrieval of 1,200+ UCI courses and resolved 30+ bugs, contributing to securing $5,500 in funding. Redesigned the year-planning data model with a JSON-stringified array schema to support fully dynamic multi-year scheduling.',
   },
   {
     role: 'Undergraduate Mentor',
@@ -113,9 +113,9 @@ const awards = [
 ]
 
 const certifications = [
-  'PCEP — Python',
-  'Coursera UCSC — C++',
-  'WorldTutor — Java',
+  'PCEP (Python)',
+  'Coursera UCSC (C++)',
+  'WorldTutor (Java)',
 ]
 
 const clubs = ["Data@UCI", "AI@UCI", "Cyber@UCI", "Hack@UCI", "Dean's Honor List"]

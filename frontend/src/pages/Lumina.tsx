@@ -33,16 +33,16 @@ const pipeline = [
 ]
 
 const images = [
-  { src: '/lumina/lumina_preview.png', alt: 'Lumina — Talk to your documents' },
+  { src: '/lumina/lumina_preview.png', alt: 'Lumina: talk to your documents' },
 ]
 
 const techTags = ['Python', 'RAG', 'Vector Search', 'Multimodal Embeddings', 'Next.js', 'TypeScript']
 
 const learned = [
-  'Grounding answers in citations changes how much you can trust a RAG system — it turns "trust me" into "check this passage."',
+  'Grounding answers in citations changes how much you can trust a RAG system: it turns "trust me" into "check this passage."',
   'Multimodal retrieval (text + image) needs a shared embedding space, not two separate pipelines bolted together.',
   'A workbench-style UI, where you can see what got retrieved before reading the answer, catches bad retrievals before they become bad answers.',
-  'Grounded RAG is as much a UX problem as a retrieval problem — citations only help if they are easy to check.',
+  'Grounded RAG is as much a UX problem as a retrieval problem: citations only help if they are easy to check.',
 ]
 
 export default function Lumina() {
@@ -100,7 +100,7 @@ export default function Lumina() {
               </h1>
 
               <p className="text-base leading-relaxed max-w-2xl mb-8" style={{ color: '#d0d0d0', lineHeight: 1.85 }}>
-                A grounded, multimodal RAG workbench. Upload PDFs, images, and text — get cited answers backed by
+                A grounded, multimodal RAG workbench. Upload PDFs, images, and text, and get cited answers backed by
                 your own context instead of the model's memory.
               </p>
 
