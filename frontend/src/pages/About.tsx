@@ -43,7 +43,7 @@ function AnimatedCounter({ value, suffix = '', label }: { value: number; suffix?
 const experiences = [
   {
     role: 'Incoming SDE Intern',
-    org: 'Amazon Web Services (AWS)',
+    org: 'AWS',
     period: 'Fall 2026',
     desc: 'Joining AWS as a Software Development Engineer Intern for Fall 2026.',
   },
