@@ -51,7 +51,7 @@ const experiences = [
     role: 'AI/ML Intern',
     org: 'TCS Medical Robotics Center',
     period: 'Jun – Aug 2026',
-    desc: "Worked on the team teaching robots how to act, not just perceive. Built a multi-stage behavior-tree pipeline for autonomous manipulation in ROS2 and Gazebo — with automated recovery strategies for when a grasp doesn't go as planned — and trained reinforcement-learning policies that learn precise reach-and-grasp motion in just minutes of CPU-only training. Also fine-tuned a small vision-language-action model through imitation learning, trading raw speed for a model light enough to run without a GPU in sight.",
+    desc: "Worked on the team teaching robots how to act, not just perceive. Benchmarked task-specific reinforcement learning against a generalist vision-language-action policy (SmolVLA 450M, LeRobot) across 250+ episodes on an AgileX Piper 6-DOF arm — the pixel-only VLA matched state-based RL, 85.3% to 81.5%. Diagnosed a sparse-reward exploration collapse and solved it through action-space reparameterization — no reward shaping, no demonstrations — training PPO to 81.5% ± 3.3% liquid-transfer success across three seeds. Extended FluidLab (ICLR '23) into a robotics platform with URDF forward-kinematics joint control, analytic SDF vessels, and three upstream engine-bug fixes, and built behavior-tree manipulation pipelines with automated recovery in ROS2 and Gazebo.",
   },
   {
     role: 'API Developer',
