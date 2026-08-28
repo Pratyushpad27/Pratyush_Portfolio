@@ -42,10 +42,16 @@ function AnimatedCounter({ value, suffix = '', label }: { value: number; suffix?
 
 const experiences = [
   {
+    role: 'Incoming SDE Intern',
+    org: 'Amazon',
+    period: 'Fall 2026',
+    desc: 'Joining Amazon as a Software Development Engineer Intern for Fall 2026.',
+  },
+  {
     role: 'AI/ML Intern',
     org: 'TCS Medical Robotics Center',
-    period: 'Jun 2026 – Present',
-    desc: "Working on the team teaching robots how to act, not just perceive. Building a multi-stage behavior-tree pipeline for autonomous manipulation in ROS2 and Gazebo — with automated recovery strategies for when a grasp doesn't go as planned — and training reinforcement-learning policies that learn precise reach-and-grasp motion in just minutes of CPU-only training. Also fine-tuning a small vision-language-action model through imitation learning, trading raw speed for a model light enough to run without a GPU in sight.",
+    period: 'Jun – Aug 2026',
+    desc: "Worked on the team teaching robots how to act, not just perceive. Built a multi-stage behavior-tree pipeline for autonomous manipulation in ROS2 and Gazebo — with automated recovery strategies for when a grasp doesn't go as planned — and trained reinforcement-learning policies that learn precise reach-and-grasp motion in just minutes of CPU-only training. Also fine-tuned a small vision-language-action model through imitation learning, trading raw speed for a model light enough to run without a GPU in sight.",
   },
   {
     role: 'API Developer',
@@ -148,8 +154,9 @@ export default function About() {
               </div>
               <p className="text-sm leading-relaxed mb-6" style={{ color: '#d0d0d0' }}>
                 Computer Science student at UC Irvine (Dean's Honor List) with a passion
-                for machine learning and AI. Currently an AI/ML intern at TCS's Medical Robotics Center, training
-                reinforcement- and imitation-learning models that teach robots how to act. Previously built full-stack
+                for machine learning and AI. Incoming SDE intern at Amazon for Fall 2026, and most recently an AI/ML
+                intern at TCS's Medical Robotics Center, where I trained reinforcement- and imitation-learning models
+                that teach robots how to act. Previously built full-stack
                 course-planning tools at Ready Tutor, mentored 50+ students at Data@UCI, and conducted RNA-seq
                 research at Stanford iLab.
               </p>
